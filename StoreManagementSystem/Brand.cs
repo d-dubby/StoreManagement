@@ -57,23 +57,23 @@ namespace StoreManagementSystem
         {
             //For update and delete brand by cellclick from tbBrand
             string colName = dgbrand.Columns[e.ColumnIndex].Name;
-            if(colName == "Delete")
+            if (colName == "Delete")
             {
-                if(MessageBox.Show("Are you sure to delete this record?","POS",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure to delete this record?", "POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    cm = new SqlCommand("DELETE FROM tbBrand WHERE id LIKE '" + dgbrand[1, e.RowIndex].Value.ToString()+ "'",cn);
+                    cm = new SqlCommand("DELETE FROM tbBrand WHERE id LIKE '" + dgbrand[1, e.RowIndex].Value.ToString() + "'", cn);
                     cm.ExecuteNonQuery();
-                    cn.Close() ;
+                    cn.Close();
                     MessageBox.Show("Brand has been sucessful deleted.", "POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
             }
-            else if(colName == "Edit")
+            else if (colName == "Edit")
             {
                 BrandDetails brandDetails = new BrandDetails(this);
                 brandDetails.lblid.Text = dgbrand[1, e.RowIndex].Value.ToString();
-                brandDetails.txtbrand.Text = dgbrand[2,e.RowIndex].Value.ToString();
+                brandDetails.txtbrand.Text = dgbrand[2, e.RowIndex].Value.ToString();
                 brandDetails.btnsave.Enabled = false;
                 brandDetails.btnupdate.Enabled = true;
                 brandDetails.ShowDialog();
@@ -95,5 +95,8 @@ namespace StoreManagementSystem
         {
 
         }
+
+       
+
     }
 }
