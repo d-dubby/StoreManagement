@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace StoreManagementSystem
 {
@@ -91,6 +92,7 @@ namespace StoreManagementSystem
 
                 }
 
+
             }
             catch (Exception ex)
             {
@@ -101,6 +103,38 @@ namespace StoreManagementSystem
         private void btncancel_Click(object sender, EventArgs e)
         {
             clear();
+        }
+
+        private void btnupdate_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (MessageBox.Show("Are you sure to update this Product?", "Update Record!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    
+                    cm = new SqlCommand("UPDATE tbProduct SET barcode=@barcode,pdesc=@pdesc,brandId=@brandId,categoryId=@categoryId,price=@price,reOrder=@reOrder WHERE pcode LIKE @pcode", cn);
+                    cm.Parameters.AddWithValue("@pcode", txtPcode.Text);
+                    cm.Parameters.AddWithValue("@barcode", txtbarcode.Text);
+                    cm.Parameters.AddWithValue("@pdesc", txtPdes.Text);
+                    cm.Parameters.AddWithValue("@brandId", cbBrand.SelectedValue);
+                    cm.Parameters.AddWithValue("@categoryId", cbCategory.SelectedValue);
+                    cm.Parameters.AddWithValue("@price", double.Parse(txtprice.Text));
+                    cm.Parameters.AddWithValue("@reOrder", updownReOrder.Value);
+                    cn.Open();
+                    cm.ExecuteNonQuery();
+                    cn.Close();
+                    MessageBox.Show("Product has been successful updated", "Point of Sales");
+                    clear();
+                    this.Dispose();
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

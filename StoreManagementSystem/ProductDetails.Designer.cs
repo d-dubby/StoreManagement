@@ -97,6 +97,7 @@
             this.btnupdate.TabIndex = 18;
             this.btnupdate.Text = "Update";
             this.btnupdate.UseVisualStyleBackColor = false;
+            this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
             // 
             // btnsave
             // 
@@ -342,9 +343,9 @@
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.TextBox txtprice;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown updownReOrder;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cbBrand;
-        private System.Windows.Forms.ComboBox cbCategory;
+        public System.Windows.Forms.NumericUpDown updownReOrder;
+        public System.Windows.Forms.ComboBox cbBrand;
+        public System.Windows.Forms.ComboBox cbCategory;
     }
 }

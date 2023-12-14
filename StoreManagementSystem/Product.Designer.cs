@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Product));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -42,6 +41,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Product));
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnadd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,6 +60,7 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.txtsearch = new Bunifu.UI.WinForms.BunifuTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProduct)).BeginInit();
             this.SuspendLayout();
@@ -63,12 +68,13 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(45)))), ((int)(((byte)(76)))));
+            this.panel1.Controls.Add(this.txtsearch);
             this.panel1.Controls.Add(this.btnadd);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 475);
+            this.panel1.Location = new System.Drawing.Point(0, 471);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1103, 74);
+            this.panel1.Size = new System.Drawing.Size(1103, 78);
             this.panel1.TabIndex = 2;
             // 
             // btnadd
@@ -150,6 +156,7 @@
             this.dgProduct.RowTemplate.Height = 28;
             this.dgProduct.Size = new System.Drawing.Size(1103, 549);
             this.dgProduct.TabIndex = 3;
+            this.dgProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProduct_CellContentClick);
             // 
             // Column1
             // 
@@ -176,7 +183,7 @@
             this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
             this.Column2.Visible = false;
-            this.Column2.Width = 122;
+            this.Column2.Width = 124;
             // 
             // Column3
             // 
@@ -289,6 +296,85 @@
             this.Delete.Name = "Delete";
             this.Delete.Width = 8;
             // 
+            // txtsearch
+            // 
+            this.txtsearch.AcceptsReturn = false;
+            this.txtsearch.AcceptsTab = false;
+            this.txtsearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtsearch.AnimationSpeed = 200;
+            this.txtsearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtsearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtsearch.AutoSizeHeight = true;
+            this.txtsearch.BackColor = System.Drawing.Color.Transparent;
+            this.txtsearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtsearch.BackgroundImage")));
+            this.txtsearch.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.txtsearch.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtsearch.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.txtsearch.BorderColorIdle = System.Drawing.Color.Silver;
+            this.txtsearch.BorderRadius = 1;
+            this.txtsearch.BorderThickness = 1;
+            this.txtsearch.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
+            this.txtsearch.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtsearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtsearch.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.txtsearch.DefaultText = "";
+            this.txtsearch.FillColor = System.Drawing.Color.White;
+            this.txtsearch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtsearch.HideSelection = true;
+            this.txtsearch.IconLeft = null;
+            this.txtsearch.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtsearch.IconPadding = 10;
+            this.txtsearch.IconRight = ((System.Drawing.Image)(resources.GetObject("txtsearch.IconRight")));
+            this.txtsearch.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtsearch.Lines = new string[0];
+            this.txtsearch.Location = new System.Drawing.Point(434, 21);
+            this.txtsearch.MaxLength = 32767;
+            this.txtsearch.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txtsearch.Modified = false;
+            this.txtsearch.Multiline = false;
+            this.txtsearch.Name = "txtsearch";
+            stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties1.FillColor = System.Drawing.Color.Empty;
+            stateProperties1.ForeColor = System.Drawing.Color.Black;
+            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtsearch.OnActiveState = stateProperties1;
+            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties2.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.txtsearch.OnDisabledState = stateProperties2;
+            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties3.FillColor = System.Drawing.Color.Empty;
+            stateProperties3.ForeColor = System.Drawing.Color.Empty;
+            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtsearch.OnHoverState = stateProperties3;
+            stateProperties4.BorderColor = System.Drawing.Color.Silver;
+            stateProperties4.FillColor = System.Drawing.Color.White;
+            stateProperties4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtsearch.OnIdleState = stateProperties4;
+            this.txtsearch.Padding = new System.Windows.Forms.Padding(3);
+            this.txtsearch.PasswordChar = '\0';
+            this.txtsearch.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtsearch.PlaceholderText = "Search here...";
+            this.txtsearch.ReadOnly = false;
+            this.txtsearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtsearch.SelectedText = "";
+            this.txtsearch.SelectionLength = 0;
+            this.txtsearch.SelectionStart = 0;
+            this.txtsearch.ShortcutsEnabled = true;
+            this.txtsearch.Size = new System.Drawing.Size(548, 33);
+            this.txtsearch.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
+            this.txtsearch.TabIndex = 2;
+            this.txtsearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtsearch.TextMarginBottom = 0;
+            this.txtsearch.TextMarginLeft = 3;
+            this.txtsearch.TextMarginTop = 1;
+            this.txtsearch.TextPlaceholder = "Search here...";
+            this.txtsearch.UseSystemPasswordChar = false;
+            this.txtsearch.WordWrap = true;
+            this.txtsearch.TextChange += new System.EventHandler(this.txtsearch_TextChange);
+            // 
             // Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -326,5 +412,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private Bunifu.UI.WinForms.BunifuTextBox txtsearch;
     }
 }

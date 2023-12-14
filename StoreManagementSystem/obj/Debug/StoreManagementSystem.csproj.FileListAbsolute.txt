@@ -18,3 +18,5 @@ C:\Users\user\Documents\Coding\Class C#\StoreManagementSystem\StoreManagementSys
 C:\Users\user\Documents\Coding\Class C#\StoreManagementSystem\StoreManagementSystem\obj\Debug\StoreManagementSystem.ProductDetails.resources
 C:\Users\user\Documents\Coding\Class C#\StoreManagementSystem\StoreManagementSystem\bin\Debug\Guna.UI2.dll
 C:\Users\user\Documents\Coding\Class C#\StoreManagementSystem\StoreManagementSystem\obj\Debug\StoreManagementSystem.csproj.CopyComplete
+C:\Users\user\Documents\Coding\Class C#\StoreManagementSystem\StoreManagementSystem\bin\Debug\Bunifu.UI.WinForms.dll
+C:\Users\user\Documents\Coding\Class C#\StoreManagementSystem\StoreManagementSystem\bin\Debug\Bunifu.UI.WinForms.xml
